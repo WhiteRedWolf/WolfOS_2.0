@@ -1,5 +1,6 @@
 #include "HardDiskState.h"
 
+
 std::vector<char> Tes32::HardDriveController::ReadFile(const char* filename)
 {
 	std::ifstream inFile;
@@ -23,6 +24,23 @@ std::vector<char> Tes32::HardDriveController::ReadFile(const char* filename)
 	}
 
 	return returnbuf;
+}
+
+std::vector<std::string> Tes32::HardDriveController::ReadLines(const char* filename)
+{
+	std::vector<std::string> lines;
+
+	std::ifstream file(std::experimental::filesystem::current_path().string() + filename);
+	if (file.is_open()) {
+		
+		std::string line;
+		while (getline(file, line)) {
+			lines.push_back(line);
+		}
+		file.close();
+	}
+
+	return lines;
 }
 
 bool Tes32::HardDriveController::WriteFile(char* buffer, const char* filename)

@@ -24,7 +24,7 @@ Tes32::GraphicsDevice::GraphicsController::GraphicsController()
 	}
 
 	for (std::string s : driversettings) {
-		std::vector<std::string> Split = this->split(s, "=");
+		std::vector<std::string> Split = tstd::split(s, "=");
 		
 		if (Split[0] == "GraphicsMode") {
 			if (Split[1] == "640x480") {
@@ -35,7 +35,7 @@ Tes32::GraphicsDevice::GraphicsController::GraphicsController()
 			}
 		}
 		else if (Split[0] == "FillColor") {
-			std::vector<std::string> color = this->split(Split[1], ",");
+			std::vector<std::string> color = tstd::split(Split[1], ",");
 
 			int r, g, b;
 			r = atoi(color[0].c_str());
@@ -55,7 +55,7 @@ Tes32::GraphicsDevice::GraphicsController::GraphicsController()
 
 	}
 
-	this->display_buffer = new Tes32::GraphicsDevice::InternalTypes::ColorPixel[width * height];
+	//this->display_buffer = new Tes32::GraphicsDevice::InternalTypes::ColorPixel[width * height];
 
 	for (int y = 0; y != height; y++) {
 		for (int x = 0; x != width; x++) {
@@ -97,22 +97,8 @@ void Tes32::GraphicsDevice::GraphicsController::ModifySyncRegisters(bool sRender
 	this->Hold = sStayWhileNotRendering;
 }
 
-std::vector<std::string> Tes32::GraphicsDevice::GraphicsController::split(const std::string& str, const std::string& delim)
-{
-	std::vector<std::string> tokens;
-	size_t prev = 0, pos = 0;
-	do
-	{
-		pos = str.find(delim, prev);
-		if (pos == std::string::npos) pos = str.length();
-		std::string token = str.substr(prev, pos - prev);
-		if (!token.empty()) tokens.push_back(token);
-		prev = pos + delim.length();
-	} while (pos < str.length() && prev < str.length());
-	return tokens;
-}
 
-void Tes32::GraphicsDevice::GraphicsController::RenderThread()
+void Tes32::GraphicsDevice::GraphicsController::Render()
 {
 	int start, movement, end;
 	Tes32::GraphicsDevice::InternalTypes::ColorPixel* vram = this->display_buffer;
@@ -120,28 +106,52 @@ void Tes32::GraphicsDevice::GraphicsController::RenderThread()
 	start = 0;
 	movement = 1;
 	end = 480;
-	
 
-
-	while (this->Hold) {
-		if (this->KeepRendering) {
-			for (int y = start; y != end; y++) {
-				for (int x = 0; x != this->ctx_size.x; x++) {
+	for (int y = start; y != end; y++) {
+		for (int x = 0; x != this->ctx_size.x; x++) {
+			SetPixel(
+				render_ctx,
+				x, y,
+				RGB(
+					display_buffer[x + this->ctx_size.x * y].r,
+					display_buffer[x + this->ctx_size.x * y].g,
+					display_buffer[x + this->ctx_size.x * y].b
+				)
+			);
 					
-					
-					SetPixel(
-						render_ctx,
-						x, y,
-						RGB(
-							display_buffer[x + this->ctx_size.x * y].r,
-							display_buffer[x + this->ctx_size.x * y].g,
-							display_buffer[x + this->ctx_size.x * y].b
-						)
-					);
-					
-				}
-			}
 		}
-		//while(Tes32::GraphicsDevice::Optimizations::CheckForDifferenceInRenderBuffer(vram, this->display_buffer, this->graphicsmode) == true){}
 	}
+		
+	
 }
+void Tes32::GraphicsDevice::GraphicsController::RenderRegion(int xa, int ya, int xb, int yb)
+{
+	int start, movement, end;
+	Tes32::GraphicsDevice::InternalTypes::ColorPixel* vram = this->display_buffer;
+
+	start = 0;
+	movement = 1;
+	end = 480;
+
+	for (int y = ya; y != yb; y++) {
+		for (int x = xa; x != xb; x++) {
+			SetPixel(
+				render_ctx,
+				x, y,
+				RGB(
+					display_buffer[x + this->ctx_size.x * y].r,
+					display_buffer[x + this->ctx_size.x * y].g,
+					display_buffer[x + this->ctx_size.x * y].b
+				)
+			);
+
+		}
+	}
+
+
+}
+void Tes32::GraphicsDevice::GraphicsController::WriteToVideoMemory(int x, int y, Tes32::GraphicsDevice::InternalTypes::ColorPixel data)
+{
+	this->display_buffer[x + this->ctx_size.x * y] = data;
+}
+

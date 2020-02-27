@@ -25,7 +25,7 @@ Tes32::AudioDevice::AudioController::AudioController()
 	
 	std::ifstream file(std::experimental::filesystem::current_path().string() + "\\HDD\\System\\Drivers\\tessnd.inf");
 	if (file.is_open()) {
-		printf("LOADED!");
+		
 		std::string line;
 		while (getline(file, line)) {
 			split.push_back(line);

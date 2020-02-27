@@ -1,0 +1,11 @@
+#pragma once
+#include <stdio.h>
+#include <string>
+#include <vector>
+#include <cstdint>
+#include <exception>
+#include <Windows.h>
+#include <fstream>
+#include <ios>
+#include <filesystem>
+#include <thread>
