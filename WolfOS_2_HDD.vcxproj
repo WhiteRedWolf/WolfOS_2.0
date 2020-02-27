@@ -101,6 +101,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <ProgramDataBaseFileName>$(TEMP)$(TargetName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -117,6 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <ProgramDataBaseFileName>$(TEMP)$(TargetName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,13 +129,20 @@
   <ItemGroup>
     <ClCompile Include="Boot.cpp" />
     <ClCompile Include="Tes32\AudioDevice\AudioController.cpp" />
+    <ClCompile Include="Tes32\ExternLibs\tinyexpr\tinyexpr.c" />
+    <ClCompile Include="Tes32\GraphicsDevice\CGL\Interpreter.cpp" />
     <ClCompile Include="Tes32\GraphicsDevice\DeltaOptimization.cpp" />
     <ClCompile Include="Tes32\GraphicsDevice\GraphicsController.cpp" />
     <ClCompile Include="Tes32\GraphicsDevice\WindowController.cpp" />
     <ClCompile Include="Tes32\HardDriveController\HardDiskState.cpp" />
+    <ClCompile Include="Tes32\KernelFunctions\Replace.cpp" />
+    <ClCompile Include="Tes32\KernelFunctions\Round.cpp" />
+    <ClCompile Include="Tes32\KernelFunctions\Split.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tes32\AudioDevice\AudioController.h" />
+    <ClInclude Include="Tes32\BaseIncludes.h" />
+    <ClInclude Include="Tes32\ExternLibs\tinyexpr\tinyexpr.h" />
     <ClInclude Include="Tes32\GraphicsDevice\CGL\Interpreter.h" />
     <ClInclude Include="Tes32\GraphicsDevice\DeltaOptimization.h" />
     <ClInclude Include="Tes32\GraphicsDevice\GraphicsController.h" />
@@ -141,10 +150,14 @@
     <ClInclude Include="Tes32\GraphicsDevice\InternalClasses\ColorPixel.h" />
     <ClInclude Include="Tes32\GraphicsDevice\WindowController.h" />
     <ClInclude Include="Tes32\HardDriveController\HardDiskState.h" />
+    <ClInclude Include="Tes32\KernelFunctions\Replace.h" />
+    <ClInclude Include="Tes32\KernelFunctions\Round.h" />
+    <ClInclude Include="Tes32\KernelFunctions\Split.h" />
     <ClInclude Include="WolfOS2.0\WolfOS.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug\HDD\System\Drivers\vga_cgl_prefabs\alphabet_small_a.cgl" />
+    <None Include="Debug\HDD\System\Drivers\vga_cgl_prefabs\test.cgl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,7 +5,8 @@
 
 #include "Tes32/GraphicsDevice/GraphicsController.h"
 #include "Tes32/AudioDevice/AudioController.h"
-
+#include "Tes32/GraphicsDevice/CGL/Interpreter.h"
+#include "Tes32/HardDriveController/HardDiskState.h"
 
 int main(int argc, char** argv) {
 	
@@ -25,10 +26,12 @@ int main(int argc, char** argv) {
 	
 	
 
-	std::thread g_ctx_renderloop(&Tes32::GraphicsDevice::GraphicsController::RenderThread, g_ctx);
+	g_ctx.Render();
 
 	
+	Tes32::GraphicsDevice::CGL::DrawCGLPrefabToVRAM(Tes32::HardDriveController::ReadLines("\\Debug\\HDD\\System\\Drivers\\vga_cgl_prefabs\\test.cgl"), std::ref(g_ctx), { 64,64 }, {640, 480});
+	
+	g_ctx.Render();
 
-
-	g_ctx_renderloop.join();
+	
 }
