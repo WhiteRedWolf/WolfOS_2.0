@@ -1,5 +1,5 @@
-GraphicsMode=640x480
-FillColor=255,255,255
+GraphicsMode=1040x480
+FillColor=64,64,64
 ColorAdjust_R=0
 ColorAdjust_G=0
 ColorAdjust_B=0
