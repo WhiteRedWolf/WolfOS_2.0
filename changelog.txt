@@ -15,3 +15,12 @@ WolfOS 2.0b1.0.2
 + CGL_plot_pixel for pixel drawings
 + Tes32::GraphicsDevice::GraphicsController::RenderRegion/RenderPixel for optimization
 + Eevee!!
+
+WolfOS 2.0b1.0.3
++ Changed CGL Command Argument delimiter from: ' ' to ','
++ Changed Project Working Directory at runtime
++ CGL_draw_circle
++ CGL_draw_filled_circle
++ CGL_draw_filled_rectangle
+* CGL_draw_thick_circle currently not working..
+* CGL_draw_image for drawing BMP Images (yes another obsolete file format..) currently doesnt work either.

@@ -13,7 +13,7 @@ Tes32::GraphicsDevice::GraphicsController::GraphicsController()
 	int width, height;
 	Tes32::GraphicsDevice::InternalTypes::ColorPixel fillclr;
 
-	std::ifstream file(std::experimental::filesystem::current_path().string() + "\\Debug\\HDD\\System\\Drivers\\tesvga.inf");
+	std::ifstream file(std::experimental::filesystem::current_path().string() + "\\HDD\\System\\Drivers\\tesvga.inf");
 	if (file.is_open()) {
 		printf("LOADED!");
 		std::string line;
@@ -27,11 +27,11 @@ Tes32::GraphicsDevice::GraphicsController::GraphicsController()
 		std::vector<std::string> Split = tstd::split(s, "=");
 		
 		if (Split[0] == "GraphicsMode") {
-			if (Split[1] == "640x480") {
+			if (Split[1] == "1040x480") {
 				this->graphicsmode = 0;
-				width = 640;
-				height = 480;
-				Tes32::GraphicsDevice::OutputWindow::SetOutputWindowSize(this->display_handle, { 0,0 }, { 64, 64 });
+				width = 1040; // 1040 / 120 = 8.6px
+				height = 480; // 480 / 30 = 16px
+				//Tes32::GraphicsDevice::OutputWindow::SetOutputWindowSize(this->display_handle, { 0,0 }, { 64, 64 });
 			}
 		}
 		else if (Split[0] == "FillColor") {
@@ -55,7 +55,7 @@ Tes32::GraphicsDevice::GraphicsController::GraphicsController()
 
 	}
 
-	//this->display_buffer = new Tes32::GraphicsDevice::InternalTypes::ColorPixel[width * height];
+	this->display_buffer = new Tes32::GraphicsDevice::InternalTypes::ColorPixel[width * height];
 
 	for (int y = 0; y != height; y++) {
 		for (int x = 0; x != width; x++) {
@@ -105,7 +105,7 @@ void Tes32::GraphicsDevice::GraphicsController::Render()
 
 	start = 0;
 	movement = 1;
-	end = 480;
+	end = this->ctx_size.y;
 
 	for (int y = start; y != end; y++) {
 		for (int x = 0; x != this->ctx_size.x; x++) {

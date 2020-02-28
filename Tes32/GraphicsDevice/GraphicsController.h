@@ -28,7 +28,7 @@ namespace Tes32 {
 			bool Destroy();
 			void ModifySyncRegisters(bool sRender, bool sStayWhileNotRendering);
 
-			Tes32::GraphicsDevice::InternalTypes::ColorPixel display_buffer[640 * 480];
+			Tes32::GraphicsDevice::InternalTypes::ColorPixel* display_buffer;
 
 			void Render();
 			void RenderThread();

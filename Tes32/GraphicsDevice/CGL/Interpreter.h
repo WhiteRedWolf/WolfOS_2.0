@@ -2,6 +2,8 @@
 #include <vector>
 #include <string>
 #include <cmath>
+#include "../ReadImageFormats/ReadBMP.h"
+#include "../InternalClasses/BMPImage.h"
 
 #include "../InternalClasses/ColorPixel.h"
 #include "../InternalClasses/Boundary.h"

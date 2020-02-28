@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
 	g_ctx.Render();
 
 	
-	Tes32::GraphicsDevice::CGL::DrawCGLPrefabToVRAM(Tes32::HardDriveController::ReadLines("\\Debug\\HDD\\System\\Drivers\\vga_cgl_prefabs\\output.cgl"), std::ref(g_ctx), { 132,64 }, {640, 480});
+	Tes32::GraphicsDevice::CGL::DrawCGLPrefabToVRAM(Tes32::HardDriveController::ReadLines("\\HDD\\System\\Drivers\\vga_cgl_prefabs\\test.cgl"), std::ref(g_ctx), { 50,50 }, {640, 480});
 	
 	g_ctx.Render();
 
