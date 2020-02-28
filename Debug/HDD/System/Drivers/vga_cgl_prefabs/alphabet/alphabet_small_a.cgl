@@ -1,0 +1,14 @@
+draw_line %origin_x %origin_y %origin_x+16 %origin_y 128|128|128
+draw_line %origin_x %origin_y+1 %origin_x+16 %origin_y+1 128|128|128
+
+draw_line %origin_x+16 %origin_y %origin_x+16 %origin_y+16 128|128|128
+draw_line %origin_x+15 %origin_y %origin_x+15 %origin_y+16 128|128|128
+
+draw_line %origin_x %origin_y+8 %origin_x+16 %origin_y+8 128|128|128
+draw_line %origin_x %origin_y+7 %origin_x+16 %origin_y+7 128|128|128
+
+draw_line %origin_x %origin_y+16 %origin_x+16 %origin_y+16 128|128|128
+draw_line %origin_x %origin_y+15 %origin_x+16 %origin_y+15 128|128|128
+
+draw_line %origin_x %origin_y+8 %origin_x %origin_y+16 128|128|128
+draw_line %origin_x+1 %origin_y+8 %origin_x+1 %origin_y+16 128|128|128

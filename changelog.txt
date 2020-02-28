@@ -10,3 +10,8 @@ WolfOS 2.0b1.0.1
 + Deleted Multithreading
 + Added RenderRegion for rendering not the entire screen
 + Added tinyexpr for CGL Mathematical Calculation
+
+WolfOS 2.0b1.0.2
++ CGL_plot_pixel for pixel drawings
++ Tes32::GraphicsDevice::GraphicsController::RenderRegion/RenderPixel for optimization
++ Eevee!!

@@ -31,7 +31,9 @@ namespace Tes32 {
 			Tes32::GraphicsDevice::InternalTypes::ColorPixel display_buffer[640 * 480];
 
 			void Render();
+			void RenderThread();
 			void RenderRegion(int xa, int ya, int xb, int yb);
+			void RenderPixel(int x, int y);
 
 			bool KeepRendering = true;
 			bool Hold = true;

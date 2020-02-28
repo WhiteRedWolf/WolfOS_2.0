@@ -13,6 +13,11 @@
 	[0]			  [1]		 [2]	   [3]	     [4]       [5]
 	std::string   uint32_t   uint32_t  uint32_t  uint32_t  ColorPixel
 	draw_line 0, 0, 4, 4, 255|255|255
+
+	plot_pixel   (x)       (y)       (color)
+	[0]			 [1]       [2]		 [3]
+	std::string  uint32_t  uint32_t  ColorPixel
+	plot_pixel 64,64, 128|128|128
 */
 
 
@@ -37,9 +42,11 @@ void Tes32::GraphicsDevice::CGL::DrawCGLPrefabToVRAM(std::vector<std::string> cg
 			}
 		}
 
-		std::vector<std::string> color = tstd::split(final_commands[5], "|");
 
-		Tes32::GraphicsDevice::InternalTypes::ColorPixel clr = { (char)atoi(color[0].c_str()), (char)atoi(color[1].c_str()), (char)atoi(color[2].c_str()) };
+		if (final_commands[0] == "draw_line") {
+			std::vector<std::string> color = tstd::split(final_commands[5], "|");
+
+			Tes32::GraphicsDevice::InternalTypes::ColorPixel clr = { (char)atoi(color[0].c_str()), (char)atoi(color[1].c_str()), (char)atoi(color[2].c_str()) };
 
 #define ROUND(a) ((int) (a + 0.5))
 
@@ -48,28 +55,35 @@ void Tes32::GraphicsDevice::CGL::DrawCGLPrefabToVRAM(std::vector<std::string> cg
 #define xb atoi(final_commands[3].c_str())
 #define yb atoi(final_commands[4].c_str())
 
-		int dx = xb - xa;
-		int dy = yb - ya;
-		int steps, k;
+			int dx = xb - xa;
+			int dy = yb - ya;
+			int steps, k;
 
-		float xIncrement, yIncrement, x = xa, y = ya;
+			float xIncrement, yIncrement, x = xa, y = ya;
 
-		if (abs(dx) > abs(dy)) steps = abs(dx);
-		else steps = abs(dy);
+			if (abs(dx) > abs(dy)) steps = abs(dx);
+			else steps = abs(dy);
 
-		xIncrement = dx / (float)steps;
-		yIncrement = dy / (float)steps;
+			xIncrement = dx / (float)steps;
+			yIncrement = dy / (float)steps;
 
-		render_ctx.WriteToVideoMemory(ROUND(x), ROUND(y), clr);
+			render_ctx.WriteToVideoMemory(ROUND(x), ROUND(y), clr);
 
-		for (int k = 0; k < steps; k++) {
-			x += xIncrement;
-			y += yIncrement;
+			for (int k = 0; k < steps; k++) {
+				x += xIncrement;
+				y += yIncrement;
 
-			render_ctx.WriteToVideoMemory(x, y, clr);
+				render_ctx.WriteToVideoMemory(x, y, clr);
+			}
+
+			render_ctx.RenderRegion(xa + 1, ya + 1, xb + 1, yb + 1);
 		}
-		
-		render_ctx.RenderRegion(xa+1, ya+1, xb+1, yb+1);
-		
+		else if (final_commands[0] == "plot_pixel") {
+			std::vector<std::string> color = tstd::split(final_commands[3], "|");
+
+			Tes32::GraphicsDevice::InternalTypes::ColorPixel clr = { (char)atoi(color[0].c_str()), (char)atoi(color[1].c_str()), (char)atoi(color[2].c_str()) };
+
+			render_ctx.WriteToVideoMemory(atoi(final_commands[1].c_str()), atoi(final_commands[2].c_str()), clr);
+		}
 	}
 }

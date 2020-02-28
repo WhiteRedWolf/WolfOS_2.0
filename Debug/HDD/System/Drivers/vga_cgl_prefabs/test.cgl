@@ -1,0 +1,4 @@
+plot_pixel 64 64 128|128|128
+plot_pixel 65 64 128|128|128
+plot_pixel 64 65 128|128|128
+plot_pixel 65 65 128|128|128

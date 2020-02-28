@@ -150,6 +150,59 @@ void Tes32::GraphicsDevice::GraphicsController::RenderRegion(int xa, int ya, int
 
 
 }
+void Tes32::GraphicsDevice::GraphicsController::RenderThread()
+{
+	int start, movement, end;
+	Tes32::GraphicsDevice::InternalTypes::ColorPixel* vram = this->display_buffer;
+
+	start = 0;
+	movement = 1;
+	end = 480;
+
+
+
+	while (this->Hold) {
+		if (this->KeepRendering) {
+			for (int y = start; y != end; y++) {
+				for (int x = 0; x != this->ctx_size.x; x++) {
+
+
+					SetPixel(
+						render_ctx,
+						x, y,
+						RGB(
+							display_buffer[x + this->ctx_size.x * y].r,
+							display_buffer[x + this->ctx_size.x * y].g,
+							display_buffer[x + this->ctx_size.x * y].b
+						)
+					);
+
+				}
+			}
+		}
+		//while(Tes32::GraphicsDevice::Optimizations::CheckForDifferenceInRenderBuffer(vram, this->display_buffer, this->graphicsmode) == true){}
+	}
+}
+void Tes32::GraphicsDevice::GraphicsController::RenderPixel(int x, int y)
+{
+	int start, movement, end;
+	Tes32::GraphicsDevice::InternalTypes::ColorPixel* vram = this->display_buffer;
+
+	start = 0;
+	movement = 1;
+	end = 480;
+			SetPixel(
+				render_ctx,
+				x, y,
+				RGB(
+					display_buffer[x + this->ctx_size.x * y].r,
+					display_buffer[x + this->ctx_size.x * y].g,
+					display_buffer[x + this->ctx_size.x * y].b
+				)
+			);
+
+
+}
 void Tes32::GraphicsDevice::GraphicsController::WriteToVideoMemory(int x, int y, Tes32::GraphicsDevice::InternalTypes::ColorPixel data)
 {
 	this->display_buffer[x + this->ctx_size.x * y] = data;
