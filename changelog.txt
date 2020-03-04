@@ -24,3 +24,8 @@ WolfOS 2.0b1.0.3
 + CGL_draw_filled_rectangle
 * CGL_draw_thick_circle currently not working..
 * CGL_draw_image for drawing BMP Images (yes another obsolete file format..) currently doesnt work either.
+
+WolfOS 2.0b1.0.4
++ Added Template Code for WolfOS
++ Added Bootloader!
++ Added SystemHeader

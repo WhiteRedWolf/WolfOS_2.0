@@ -1,6 +1,6 @@
 #include "HardDiskState.h"
 
-
+#ifdef _TES32_ENABLE_KERNEL_HARD_DRIVE_ROUTINE
 std::vector<char> Tes32::HardDriveController::ReadFile(const char* filename)
 {
 	std::ifstream inFile;
@@ -57,3 +57,4 @@ bool Tes32::HardDriveController::WriteFile(char* buffer, const char* filename)
 		return false;
 	}
 }
+#endif
