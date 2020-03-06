@@ -5,21 +5,21 @@
 #include <time.h>
 #include <stdlib.h>
 
-#include "Tes32/GraphicsDevice/GraphicsController.h"
-#include "Tes32/AudioDevice/AudioController.h"
+#include "Tes32/KeyboardController/KeyboardController.h"
 #include "Tes32/Bootloader/LoadOperatingSystem.h"
 
 #include "WolfOS2.0/WolfOS.h"
 
 int main(int argc, char** argv) {
-		
-	printf("\n\nInitializing AudioDevice...");
-	Tes32::AudioDevice::AudioController a_ctx;
 
-	printf("Initializing GraphicsDevice...");
-	Tes32::GraphicsDevice::GraphicsController g_ctx;
+	srand(time(NULL));
+	int OS_KEY = std::rand();
 
-	printf("\n\tCreating Thread %%gctx.RenderLoop");
+	printf("OS Key Generated for disabling User Generated Kernel Interrupts: %i\n", OS_KEY);
+
+	Tes32::KeyboardController::KeyboardDriver k_ctx;
+	std::thread keyboard(&Tes32::KeyboardController::KeyboardDriver::KernelKeyboardDriverLoop, k_ctx);
+
 
 	system("sleep 1");
 	system("clear");
@@ -33,11 +33,6 @@ int main(int argc, char** argv) {
 	Tes32::Bootloader::Bootloader loader;
 	loader.LoadOperatingSystem(&WolfOS, WolfOS::Bootloader::LoadOperatingSystem);
 
-#ifdef _TES32_DESTROY_GRAPHICS_DEVICE
-	g_ctx.Destroy();
-#endif
+	keyboard.join();
 
-#ifdef _TES32_DESTROY_AUDIO_DEVICE
-	a_ctx = nullptr;
-#endif
 }

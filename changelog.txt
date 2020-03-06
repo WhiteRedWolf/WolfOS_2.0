@@ -29,3 +29,7 @@ WolfOS 2.0b1.0.4
 + Added Template Code for WolfOS
 + Added Bootloader!
 + Added SystemHeader
+
+WolfOS 2.0b1.0.5
++ Added KeyboardController
++ Added KernelMode
