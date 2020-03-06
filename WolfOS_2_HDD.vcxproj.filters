@@ -51,6 +51,18 @@
     <ClCompile Include="Tes32\GraphicsDevice\ReadImageFormats\ReadBMP.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Tes32\Bootloader\LoadOperatingSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tes32\Time\BenchmarkTimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WolfOS2.0\WolfOS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tes32\KeyboardController\KeyboardController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tes32\HardDriveController\HardDiskState.h">
@@ -99,6 +111,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tes32\GraphicsDevice\InternalClasses\BMPImage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tes32\Bootloader\InternalTypes\SystemHeader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tes32\Bootloader\LoadOperatingSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tes32\Time\BenchmarkTimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tes32\KeyboardController\KeyboardController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

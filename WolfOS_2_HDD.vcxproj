@@ -140,6 +140,7 @@
     <ClCompile Include="Tes32\KernelFunctions\Replace.cpp" />
     <ClCompile Include="Tes32\KernelFunctions\Round.cpp" />
     <ClCompile Include="Tes32\KernelFunctions\Split.cpp" />
+    <ClCompile Include="Tes32\KeyboardController\KeyboardController.cpp" />
     <ClCompile Include="Tes32\Time\BenchmarkTimer.cpp" />
     <ClCompile Include="WolfOS2.0\WolfOS.cpp" />
   </ItemGroup>
@@ -161,6 +162,7 @@
     <ClInclude Include="Tes32\KernelFunctions\Replace.h" />
     <ClInclude Include="Tes32\KernelFunctions\Round.h" />
     <ClInclude Include="Tes32\KernelFunctions\Split.h" />
+    <ClInclude Include="Tes32\KeyboardController\KeyboardController.h" />
     <ClInclude Include="Tes32\Time\BenchmarkTimer.h" />
     <ClInclude Include="WolfOS2.0\WolfOS.h" />
   </ItemGroup>
