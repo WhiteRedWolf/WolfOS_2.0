@@ -18,11 +18,10 @@ void Tes32::KeyboardController::KeyboardDriver::KernelKeyboardDriverLoop()
 			std::string kernel_interrupt_input;
 			printf("\nKERNEL INTERRUPT MODE - ONLY USE IN EMERGENCY!\nkernel@keyboardinterrupt:/romfs/tes32$ ");
 			std::cin >> kernel_interrupt_input;
-			if (kernel_interrupt_input == "__tes32_power_state_interrupt_?shutdown") {
+			if (kernel_interrupt_input == "shutdown") {
 				exit(12001);
 			}
 			else if (kernel_interrupt_input == "ls") {
-				printf("                                     $ __tes32_harddrive_controller___list_directory_of|/romfs/tes32|_tes32_typespace___only_show_command?");
 
 				printf("\n[ls.tbf      ][shutdown.tbf][kernel_x.tbf] | [98 bytes  ][39 bytes  ][31 bytes  ]\n");
 				printf("\n[cd.tbf      ][exit_os.tbf ][            ] | [77 bytes  ][78 bytes  ][          ]\n");

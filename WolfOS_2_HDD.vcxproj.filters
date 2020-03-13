@@ -48,9 +48,6 @@
     <ClCompile Include="Tes32\KernelFunctions\Round.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tes32\GraphicsDevice\ReadImageFormats\ReadBMP.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Tes32\Bootloader\LoadOperatingSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -61,6 +58,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Tes32\KeyboardController\KeyboardController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tes32\Drivers\DriverStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -107,12 +107,6 @@
     <ClInclude Include="Tes32\KernelFunctions\Round.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tes32\GraphicsDevice\ReadImageFormats\ReadBMP.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tes32\GraphicsDevice\InternalClasses\BMPImage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Tes32\Bootloader\InternalTypes\SystemHeader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -123,6 +117,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tes32\KeyboardController\KeyboardController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tes32\KernelFunctions\encoding\Base64.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tes32\Drivers\DriverStore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tes32\Drivers\Driver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tes32\Drivers\DriverType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

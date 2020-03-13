@@ -2,3 +2,5 @@
 Debug/
 !Debug/HDD
 WolfOS_2_HDD.vcxproj.filters
+Dependencies/
+packages/

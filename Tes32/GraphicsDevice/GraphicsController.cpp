@@ -12,7 +12,7 @@ Tes32::GraphicsDevice::GraphicsController::GraphicsController()
 
 	int width, height;
 	Tes32::GraphicsDevice::InternalTypes::ColorPixel fillclr;
-
+	
 	std::ifstream file(std::experimental::filesystem::current_path().string() + "\\HDD\\System\\Drivers\\tesvga.inf");
 	if (file.is_open()) {
 		printf("LOADED!");

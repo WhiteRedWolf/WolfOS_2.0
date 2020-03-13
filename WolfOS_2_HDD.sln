@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.28803.452
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WolfOS_2_HDD", "WolfOS_2_HDD.vcxproj", "{80F1F093-6A92-4D8D-AC17-896A387ECA47}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternDriver", "ExternDriver", "{82510774-8FD7-45A3-BAEB-08DC8C5D0B4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tes32_NetworkDriver", "..\Tes32_NetworkDriver\Tes32_NetworkDriver.csproj", "{F6F891B8-AC09-46F3-B436-3A838D94C619}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,9 +29,24 @@ Global
 		{80F1F093-6A92-4D8D-AC17-896A387ECA47}.Release|x64.Build.0 = Release|x64
 		{80F1F093-6A92-4D8D-AC17-896A387ECA47}.Release|x86.ActiveCfg = Release|Win32
 		{80F1F093-6A92-4D8D-AC17-896A387ECA47}.Release|x86.Build.0 = Release|Win32
+		{F6F891B8-AC09-46F3-B436-3A838D94C619}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6F891B8-AC09-46F3-B436-3A838D94C619}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6F891B8-AC09-46F3-B436-3A838D94C619}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F6F891B8-AC09-46F3-B436-3A838D94C619}.Debug|x64.Build.0 = Debug|Any CPU
+		{F6F891B8-AC09-46F3-B436-3A838D94C619}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F6F891B8-AC09-46F3-B436-3A838D94C619}.Debug|x86.Build.0 = Debug|Any CPU
+		{F6F891B8-AC09-46F3-B436-3A838D94C619}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6F891B8-AC09-46F3-B436-3A838D94C619}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6F891B8-AC09-46F3-B436-3A838D94C619}.Release|x64.ActiveCfg = Release|Any CPU
+		{F6F891B8-AC09-46F3-B436-3A838D94C619}.Release|x64.Build.0 = Release|Any CPU
+		{F6F891B8-AC09-46F3-B436-3A838D94C619}.Release|x86.ActiveCfg = Release|Any CPU
+		{F6F891B8-AC09-46F3-B436-3A838D94C619}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F6F891B8-AC09-46F3-B436-3A838D94C619} = {82510774-8FD7-45A3-BAEB-08DC8C5D0B4A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6BF13349-4E85-4B9D-BDDA-B483F332FFBD}

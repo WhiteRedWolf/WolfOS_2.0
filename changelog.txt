@@ -33,3 +33,13 @@ WolfOS 2.0b1.0.4
 WolfOS 2.0b1.0.5
 + Added KeyboardController
 + Added KernelMode
+
+WolfOS 2.0b1.0.6
++ Added Network Driver (through curl)
++ Changed Working Directory (again)
+- Removed libjpeg
+
+WolfOS 2.0b1.0.7
++ Working on adding driver support (Tes32::Drivers::Driver, Tes32::Drivers::DriverStore)
++ Added Base64 Encoder to Kernel for Driver communication (JSON -> Base64 due to Command Line Argument Encoding issues)
+* Only added basic Functions to Drivers, no actual code there yet

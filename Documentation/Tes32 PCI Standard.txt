@@ -1,0 +1,11 @@
+Every PCI Device has to be acknowledged by the Tes32 Kernel (Which stores PCI information in /System/Drivers/tespci.inf)
+And Each PCI Device is a Seperate Win32 Executable with Commandline Support
+
+Tes32 Always sends out a Driver Recognition command in the form of a Command Line Argument
+
+tesdriver.pci ?whoami
+
+The Current Supported Responses to '?whoami' are:
+
+tes32?net_pci
+tes32?pixel_decoder

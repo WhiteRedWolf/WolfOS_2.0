@@ -225,21 +225,6 @@ void Tes32::GraphicsDevice::CGL::DrawCGLPrefabToVRAM(std::vector<std::string> cg
 				}
 			}
 		}
-		else if (final_commands[0] == "draw_image") {
 
-#define ox atoi(final_commands[1].c_str())
-#define oy atoi(final_commands[2].c_str())
-
-			Tes32::GraphicsDevice::InternalTypes::BMPImage bmp = Tes32::GraphicsDevice::ImageFormats::BMP::ReadBMP(final_commands[3].c_str());
-
-			Tes32::GraphicsDevice::InternalTypes::ColorPixel clr;
-
-			for (int y = oy; y != bmp.size.y + oy; y++) {
-				for (int x = ox; x != bmp.size.x + ox; x++) {
-					clr = { (char)bmp.pixeldata[3 * (x + bmp.size.x + y)], (char)bmp.pixeldata[3 * (x + bmp.size.x + y) + 1], (char)bmp.pixeldata[3 * (x + bmp.size.x + y) + 2] };
-					render_ctx.WriteToVideoMemory(x, y, clr);
-				}
-			}
-		}
 	}
 }
